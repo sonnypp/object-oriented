@@ -1,6 +1,6 @@
 [Project]
-FileName=Calculator.dev
-Name=Calculator
+FileName=calculator.dev
+Name=calculator
 Type=1
 Ver=2
 ObjFiles=
@@ -51,7 +51,7 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit1]
-FileName=Class.h
+FileName=calculator.h
 CompileCpp=1
 Folder=
 Compile=1

@@ -1,4 +1,4 @@
-# Project: Calculator
+# Project: calculator
 # Makefile created by Dev-C++ 5.6.3
 
 CPP      = g++.exe
@@ -9,7 +9,7 @@ LINKOBJ  = calculator.o
 LIBS     = -L"D:/Dev-Cpp/MinGW32/lib" -L"D:/Dev-Cpp/MinGW32/mingw32/lib" -static-libstdc++ -static-libgcc -pg
 INCS     = -I"D:/Dev-Cpp/MinGW32/include" -I"D:/Dev-Cpp/MinGW32/mingw32/include" -I"D:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include"
 CXXINCS  = -I"D:/Dev-Cpp/MinGW32/include" -I"D:/Dev-Cpp/MinGW32/mingw32/include" -I"D:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"D:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include/c++"
-BIN      = Calculator.exe
+BIN      = calculator.exe
 CXXFLAGS = $(CXXINCS) -pg
 CFLAGS   = $(INCS) -pg
 RM       = rm.exe -f
