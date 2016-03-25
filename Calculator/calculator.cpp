@@ -1,16 +1,40 @@
+/************************************************************
+文件名：calculator.cpp 
+作者：031502331
+时间：2016/3/26
+博客名：Sxiaopeng    
+作用：处理字符串，并且输出。          
+***********************************************************/
+
+
+
+
 #include<iostream>
 #include<string>
-#include "calculator.h"
-using namespace std;
+#include "Scan.h" 
+#include "Print.h"
 
+using namespace std;
 
 int main()
 {
-    Scan a; //创建一个Scan类的对象 a； 
-    Print b; //创建一个Print类的对象 b； 
-    string input; //声明字符串 ； 
-    cin >> input; // 输入字符串 ； 
-    a.ToStringQueue(input);  //处理字符串； 
-    b.PrintStringQueue(); //输出队列； 
-    return 0;
+    /*创建一个Scan类的对象 a；*/
+	Scan a;         
+    
+	/*创建一个Print类的对象 b；*/
+	Print b;  
+	
+	/*声明字符串 ；*/       
+	string input; 
+	 
+	/* 输入字符串 ；*/
+	cin >> input;  
+	
+	/*调用Scan类中的方法处理字符串；*/   
+	a.ToStringQueue(input);
+	
+	/*调用Print类中的方法输出队列；*/   
+	b.PrintStringQueue(); 
+	    
+	return 0;
 }
