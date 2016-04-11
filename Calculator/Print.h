@@ -14,7 +14,7 @@ using namespace std;
 文件名：Print.h 
 作者：031502331
 时间：2016/3/26
-博客名：Sxiaopeng  
+博客名：Sxiaopeng  o
 作用：输出Scan类传来的数据           
 ***********************************************************/
 
@@ -24,20 +24,26 @@ class Print
 {
 	/*在类中定义一个输出队列的方法*/
 	public:
-		void PrintStringQueue();
+		void PrintStringQueue(queue<string>key);
 };
 
-//对Print的类中的方法进行封装
-void Print::PrintStringQueue()
+
+/************************************************************
+文件名：Print.cpp
+作者：031502331
+时间：2016/4/09 
+博客名：Sxiaopeng
+作用：用来输出队列的 
+***********************************************************/
+
+
+
+void Print::PrintStringQueue(queue<string>key)
 {
-	if (count<=10)
+	while (!key.empty())
 	{
-	     /*判断key队列是否为空*/
-		while (!key.empty())            
-		{
-			cout<<key.front()<<endl;    /*一个一个的输出*/
-			key.pop();                /*删除最先那个；因为queue队列是front in front out。*/
-		}
+		cout<<key.front();    /*一个一个的输出*/
+		key.pop();                /*删除最先那个；因为queue队列是front in front out。*/
 	}
 }
 

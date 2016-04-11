@@ -1,17 +1,17 @@
-# Project: Project1
+# Project: Project3
 # Makefile created by Dev-C++ 5.10
 
-CPP      = g++.exe
-CC       = gcc.exe
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = calculator.o
-LINKOBJ  = calculator.o
-LIBS     = -L"D:/Dev-Cpp/MinGW32/lib" -L"D:/Dev-Cpp/MinGW32/mingw32/lib" -static-libstdc++ -static-libgcc -pg
-INCS     = -I"D:/Dev-Cpp/MinGW32/include" -I"D:/Dev-Cpp/MinGW32/mingw32/include" -I"D:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include"
-CXXINCS  = -I"D:/Dev-Cpp/MinGW32/include" -I"D:/Dev-Cpp/MinGW32/mingw32/include" -I"D:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"D:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include/c++"
-BIN      = calculator.exe
-CXXFLAGS = $(CXXINCS) -pg
-CFLAGS   = $(INCS) -pg
+OBJ      = calculation.o calculator.o Scan.o
+LINKOBJ  = calculation.o calculator.o Scan.o
+LIBS     = -static-libstdc++ -static-libgcc -g3
+INCS     = 
+CXXINCS  = 
+BIN      = Project3.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
 RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -24,5 +24,11 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
+calculation.o: calculation.cpp
+	$(CPP) -c calculation.cpp -o calculation.o $(CXXFLAGS)
+
 calculator.o: calculator.cpp
 	$(CPP) -c calculator.cpp -o calculator.o $(CXXFLAGS)
+
+Scan.o: Scan.cpp
+	$(CPP) -c Scan.cpp -o Scan.o $(CXXFLAGS)
