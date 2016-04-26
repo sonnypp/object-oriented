@@ -17,13 +17,13 @@ judge a; /*定义一个judge对象来调用里面的方法*/
 
 /*从中缀表达式到后缀表达式(逆波兰式)，并且计算*/
 
-int calcu::Calculation(queue<string>key)
+double calcu::Calculation(queue<string>key)
 {
 	/*运算符优先算法*/
 	stack<string>character;   /*只处理+ - # / ()运算*/
-	stack<int>num;
+	stack<double>num;
 	string alpa;
-	int tmp;
+	double tmp;
 	character.push("#");   /*用来表示开始结束的*/
 	key.push("#");        /*来表示开始结束的*/
 	num.push(0); 
@@ -61,11 +61,11 @@ int calcu::Calculation(queue<string>key)
 			{
 				string QAT = character.top();
 				character.pop();
-				int num2 = num.top();/*第二个操作数在前*/
+				double num2 = num.top();/*第二个操作数在前*/
 				num.pop();
-				int num1 = num.top();
+				double num1 = num.top();
 				num.pop();
-				int Newnum= a.Operate(num1, QAT, num2);
+				double Newnum= a.Operate(num1, QAT, num2);
 				num.push(Newnum);
 			}
 		}

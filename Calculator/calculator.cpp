@@ -9,6 +9,7 @@
 #include<iostream>
 #include<queue>
 #include<string>
+#include<string.h>
 #include<stack>
 #include "Scan.h"
 #include "Print.h"
@@ -24,21 +25,28 @@ int main(int argc,char* argv[])
 	/*创建一个calculation类的对象 b；*/
 	calcu c;
 	/*声明字符串 ；*/
-	string input,_input;
+	string input;
 	/* 输入字符串 ；*/
-	cin >> input;
-	if(input=="-a")
+	if(argc<2)
 	{
-		cin >> _input;
-		que=a.ToStringQueue(_input);
-		/*调用Print类中的方法输出队列；*/
-		b.PrintStringQueue(que);
-		cout << " = " << c.Calculation(que) << endl;
+		cout<<"无参数"<<endl;
 	}
 	else
 	{
-		que=a.ToStringQueue(input);
-		cout << c.Calculation(que) << endl;
+		if(strcmp(argv[1],"-a")==0)
+		{
+			input=argv[2];
+			que=a.ToStringQueue(input);
+			/*调用Print类中的方法输出队列；*/
+			b.PrintStringQueue(que);
+			cout << " = " << c.Calculation(que) << endl;
+		}
+		else
+		{
+			input=argv[1];
+			que=a.ToStringQueue(input);
+			cout << c.Calculation(que) << endl;
+		}
 	}
 	return 0;
 }

@@ -28,8 +28,8 @@ class judge
 	public:
 		int Punction(string alpa);
 		int locate(string alpa);
-		int Precede(string opr1, string opr2);
-		int Operate(int opnd1, string op, int opnd2);
+		double Precede(string opr1, string opr2);
+		double Operate(double opnd1, string op, double opnd2);
 };
 
 
@@ -71,7 +71,7 @@ int judge::locate(string alpa)
 	return index;
 }
 
-int judge::Precede(string opr1, string opr2)
+double judge::Precede(string opr1, string opr2)
 {
 	int index1 = locate(opr1);
 	int index2 = locate(opr2);
@@ -79,9 +79,9 @@ int judge::Precede(string opr1, string opr2)
 }
 
 //º∆À„
-int judge::Operate(int opnd1, string op, int opnd2)
+double judge::Operate(double opnd1, string op, double opnd2)
 {
-	int value;
+	double value;
 	if(op=="+")
 		value = opnd1 + opnd2;
 	else if(op=="-")

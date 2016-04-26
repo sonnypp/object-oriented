@@ -10,7 +10,7 @@
 //定义类：用来计算 
 class calcu{
 	public:
-		int Calculation(queue<string>key);
+		double Calculation(queue<string>key);
 }; 
 
 #endif
