@@ -37,7 +37,6 @@ class Print
 ***********************************************************/
 
 
-
 void Print::PrintStringQueue(queue<string>key)
 {
 	while (!key.empty())
@@ -46,7 +45,6 @@ void Print::PrintStringQueue(queue<string>key)
 		key.pop();                /*删除最先那个；因为queue队列是front in front out。*/
 	}
 }
-
 
 #endif 
 
