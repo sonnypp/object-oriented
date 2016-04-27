@@ -15,8 +15,24 @@ int count=0;      /*创建全局变量，来计算一个数的有几位数*/
 queue<string>key;/*设全局的队列queue*/
 queue<string>Scan::ToStringQueue(string input)
 {
-	int l=input.length();    /*测出字符串的长度*/
+	int len=input.length();    /*测出字符串的长度*/
 	string tmp="";
+	for(int i=0;i<len;i++)
+	{
+		if(input[i]=='('&&input[i+1]=='-')
+		{
+			tmp+=input[i];
+			tmp+='0';
+		}
+		else
+		{
+			tmp+=input[i];
+		}
+	} 
+	int l=tmp.length();
+	input="";
+	input=tmp;
+	tmp="";
 	for (int i=0; i<l; i++)
 	{
 		/*如果数字的位数超过10 就产生错误；*/

@@ -30,7 +30,7 @@ double calcu::Calculation(queue<string>key)
 	alpa = key.front();
 	key.pop();
 	//如果##配对，表达式求值完成
-	for(;alpa != "#" || character.top() != "#";)
+	while(alpa != "#" || character.top() != "#") 
 	{
 		if (a.Punction(alpa)==0)
 		{

@@ -36,9 +36,9 @@ int main(int argc,char* argv[])
 		if(strcmp(argv[1],"-a")==0)
 		{
 			input=argv[2];
+			cout << input ;
 			que=a.ToStringQueue(input);
 			/*调用Print类中的方法输出队列；*/
-			b.PrintStringQueue(que);
 			cout << " = " << c.Calculation(que) << endl;
 		}
 		else
