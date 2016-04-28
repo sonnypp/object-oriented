@@ -31,6 +31,31 @@ queue<string>Scan::ToStringQueue(string input)
 			tmp+=input[i];
 			tmp+='0';
 		}
+		else if(input[i]=='-'&&input[i+1]=='-')
+		{
+			tmp+='+';
+			i++;
+		}
+		else if(input[i]=='-'&&input[i+1]=='+')
+		{
+			tmp+=input[i];
+			i++;
+		}
+		else if(input[i]=='+'&&input[i+1]=='-')
+		{
+			tmp+=input[i];
+			tmp+='0';
+		}
+		else if(input[i]=='+'&&input[i+1]=='+')
+		{
+			tmp+=input[i];
+			i++;
+		}
+		else if(input[i]==')'&&input[i+1]=='(')
+		{
+			tmp+=input[i];
+			tmp+='*';
+		}
 		else
 		{
 			tmp+=input[i];
