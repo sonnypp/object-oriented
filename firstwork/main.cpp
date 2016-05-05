@@ -1,12 +1,11 @@
 #include<iostream>
-#include "cal.h"
-
+#include"print.h" 
 using namespace std;
 int main()
 {
-	Prt a;
-	double r;
-	cin >> r;
-    a.pta(r);
-	return 0; 
+    double r;
+    r=input();
+    Pr(r);
+    return 0;
 }
+
