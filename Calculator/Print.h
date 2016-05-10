@@ -5,46 +5,111 @@
 #include<iostream>
 #include<string>
 #include<queue>
+#include<fstream>
 #include"Scan.h"
+#include"calculation.h"
 using namespace std;
 
 
 
 /************************************************************
-文件名：Print.h 
+文件名：Print.h
 作者：031502331
 时间：2016/3/26
 博客名：Sxiaopeng  o
-作用：输出Scan类传来的数据           
+作用：输出Scan类传来的数据
 ***********************************************************/
 
 
 //创建一个Print的类
 class Print
 {
-	/*在类中定义一个输出队列的方法*/
+		/*在类中定义一个输出队列的方法*/
 	public:
-		void PrintStringQueue(queue<string>key);
+		void PrintStringQueue(string input);
+		void Printresult(stack<double>num);
+		void Filelong(string text_file,string result_file);
+		void Datalong(string input,int flag);
 };
 
 
 /************************************************************
 文件名：Print.cpp
 作者：031502331
-时间：2016/4/09 
+时间：2016/4/09
 博客名：Sxiaopeng
-作用：用来输出队列的 
+作用：用来输出队列的 还有处理一些文件问题
+
 ***********************************************************/
-
-
-void Print::PrintStringQueue(queue<string>key)
+queue<string>que;
+Scan KBS;
+calcu KBC;
+Print KBA;
+void Print::PrintStringQueue(string input)
 {
-	while (!key.empty())
+	cout << input  << " ";
+}
+void Print::Printresult(stack<double>num)
+{
+	cout << num.top() << endl;
+	num.pop();
+}
+
+void Print::Filelong(string text_file,string result_file)
+{
+	ifstream iosin;      //读操作（输入）的文件类
+	ofstream iosout;    //写操作（输出）的文件类
+	//打开文件
+	iosin.open(text_file.c_str(),ios::in);
+	iosout.open(result_file.c_str(),ios::out);
+
+	while(!iosin.eof())
 	{
-		cout<<key.front();    /*一个一个的输出*/
-		key.pop();                /*删除最先那个；因为queue队列是front in front out。*/
+		string get_input;
+		getline(iosin,get_input,'\n'); //以换行符作为分界点。
+		que=KBS.ToStringQueue(get_input);
+		double result=0;
+		if(KBS.judge())
+		{
+			result=KBC.Calculation(que);
+			//cout << get_input;
+			//cout << result << endl;
+			//将计算出来的值记录到文件中去。
+			iosout << result << endl;
+		}
+		else
+		{
+			iosout << "ERROR" << endl;   //数据出现错误的时候我们就传入"ERROR"到文件;
+		}
+	}
+	//关闭文件
+	iosin.close();
+	iosout.close();
+}
+
+void Print::Datalong(string input,int flag)
+{
+	if(flag)
+	{
+		que=KBS.ToStringQueue(input);
+		if(KBS.judge())
+		{
+			/*调用Print类中的方法输出结果；*/
+			KBA.PrintStringQueue(input);
+			cout << KBC.Calculation(que) << endl;
+		}
+		else
+			cout << "ERROR" << endl;  //数据出现错误的时候我们就输出"ERROR";
+	}
+	else
+	{
+		que=KBS.ToStringQueue(input);
+		if(KBS.judge())
+			cout << KBC.Calculation(que) << endl;
+		else
+			cout << "ERROR" << endl; //数据出现错误的时候我们就输出"ERROR";
 	}
 }
 
-#endif 
+#endif
 

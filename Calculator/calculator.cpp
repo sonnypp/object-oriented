@@ -4,6 +4,7 @@
 时间：2016/3/26
 博客名：Sxiaopeng
 作用：处理字符串，并且输出,并计算出值。
+ps:此次作业将可用文件输入与结果输出到文件 。
 ***********************************************************/
 
 #include<iostream>
@@ -26,26 +27,31 @@ int main(int argc,char* argv[])
 	calcu c;
 	/*声明字符串 ；*/
 	string input;
-	/* 输入字符串 ；*/
+	int flag=1;
+	/*判断是否为文件输入*/
 	if(argc<2)
-	{
-		cout<<"无参数"<<endl;
-	}
+		cout << "无参数" << endl;
 	else
 	{
-		if(strcmp(argv[1],"-a")==0)
+		if(strcmp(argv[1],"-f")==0)
 		{
-			input=argv[2];
-			cout << input ;
-			que=a.ToStringQueue(input);
-			/*调用Print类中的方法输出队列；*/
-			cout << " = " << c.Calculation(que) << endl;
+			string text_file=argv[argc-2];  //输入文件名
+			string result_file=argv[argc-1];  //输出文件名
+			b.Filelong(text_file,result_file); //Print类里面处理文件计算的函数
 		}
 		else
 		{
-			input=argv[1];
-			que=a.ToStringQueue(input);
-			cout << c.Calculation(que) << endl;
+			if(strcmp(argv[1],"-a")==0)
+			{
+				flag=1;
+				input=argv[2];
+			}
+			else
+			{
+				flag=0;
+				input=argv[1];
+			}
+			b.Datalong(input,flag); //Print类里面处理非文件的函数
 		}
 	}
 	return 0;

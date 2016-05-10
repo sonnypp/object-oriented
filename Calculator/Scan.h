@@ -22,6 +22,9 @@ class Scan
 		/*定义一个处理字符串的函数*/
 	public:
 		queue<string>ToStringQueue(string input);
+		bool judge();
+	private:
+		bool flag;
 };
 
 #endif

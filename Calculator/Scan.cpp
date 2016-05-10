@@ -1,30 +1,42 @@
 #include<iostream>
 #include<string>
+#include<cctype>
 #include<queue>
 #include "Scan.h"
 
 /************************************************************
 文件名：Scan.cpp
 作者：031502331
-时间：2016/4/11 
+时间：2016/4/11
 博客名：Sxiaopeng
 作用：用来对输入的字符串进行处理存入队列
 ***********************************************************/
 
 int count=0;      /*创建全局变量，来计算一个数的有几位数*/
 queue<string>key;/*设全局的队列queue*/
+
+bool Scan::judge()
+{
+	return flag;
+}
+
 queue<string>Scan::ToStringQueue(string input)
 {
+	flag=true;
+	while(!key.empty())
+	{
+		key.pop();
+	}
 	int len=input.length();    /*测出字符串的长度*/
 	string tmp="";
-	/*=============================================================== 
-	
+	/*===============================================================
+
 	对输入的字符串在入队之前先做处理，判断在'('的下一个是不是'-'，如果
 	是的话就在他们之间加入一个'0'，处理完后就对处理后的字符串进行入队处
-	理。 
-	
+	理。
+
 	==============================================================*/
-	for(int i=0;i<len;i++)
+	for(int i=0; i<len; i++)
 	{
 		if(input[i]=='('&&input[i+1]=='-')
 		{
@@ -56,28 +68,36 @@ queue<string>Scan::ToStringQueue(string input)
 			tmp+=input[i];
 			tmp+='*';
 		}
+		else if(input[i]>='0'&&input[i]<='9'&&input[i+1]=='(')
+		{
+			tmp+=input[i];
+			tmp+='*';
+		}
+		else if(input[i]==')'&&isdigit(input[i+1]))
+		{
+			tmp+=input[i];
+			tmp+='*';
+		}
 		else
 		{
 			tmp+=input[i];
 		}
-	} 
-	
-	
+	}
 	/*====================================
-	    
-		 对新的字符串做入队处理 
-	
-	====================================*/ 
+
+		 对新的字符串做入队处理
+
+	====================================*/
 	int l=tmp.length();
 	input="";
 	input=tmp;
 	tmp="";
-	for (int i=0; i<l; i++)
+	for (int i=0; i<l-1; i++)
 	{
 		/*如果数字的位数超过10 就产生错误；*/
 		if (count>10)
 		{
-			cout<<"Error"<<endl;
+		    flag=false;
 			break;
 		}
 		/*判断是否有字符*/
@@ -99,6 +119,11 @@ queue<string>Scan::ToStringQueue(string input)
 		else if (input[i]>=0||input[i]<=9)     /*判断是数字*/
 		{
 			count++;          /*计算连续数字的个数*/
+			if(input[i]=='0'&&input[i-1]=='/'&&(input[i+1]<0||input[i+1]>9))
+			{
+				flag=false;
+				break;
+			}
 			tmp+=input[i];        /*将连续数字存在一起*/
 			continue;
 		}
@@ -110,4 +135,3 @@ queue<string>Scan::ToStringQueue(string input)
 	}
 	return key;
 }
-

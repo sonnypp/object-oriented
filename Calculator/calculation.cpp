@@ -5,6 +5,7 @@
 博客名：Sxiaopeng
 作用：算法四则运算
 ***********************************************************/
+
 #include<iostream>
 #include<stack>
 #include<queue>
@@ -15,13 +16,21 @@
 
 judge a; /*定义一个judge对象来调用里面的方法*/
 
+/*运算符优先算法*/
+stack<string>character;   /*只处理+ - # / ()运算*/
+stack<double>num;
 /*从中缀表达式到后缀表达式(逆波兰式)，并且计算*/
 
 double calcu::Calculation(queue<string>key)
 {
-	/*运算符优先算法*/
-	stack<string>character;   /*只处理+ - # / ()运算*/
-	stack<double>num;
+	while(!character.empty())
+	{
+		character.pop();
+	}
+	while(!num.empty())
+	{
+		num.pop();
+	}
 	string alpa;
 	double tmp;
 	character.push("#");   /*用来表示开始结束的*/
