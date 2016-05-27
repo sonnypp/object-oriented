@@ -12,9 +12,6 @@
 作用：用来对输入的字符串进行处理存入队列
 ***********************************************************/
 
-int count=0;      /*创建全局变量，来计算一个数的有几位数*/
-queue<string>key;/*设全局的队列queue*/
-
 bool Scan::judge()
 {
 	return flag;
@@ -22,6 +19,7 @@ bool Scan::judge()
 
 queue<string>Scan::ToStringQueue(string input)
 {
+	int count=0;      /*来计算一个数的有几位数*/
 	flag=true;
 	while(!key.empty())
 	{
@@ -30,11 +28,9 @@ queue<string>Scan::ToStringQueue(string input)
 	int len=input.length();    /*测出字符串的长度*/
 	string tmp="";
 	/*===============================================================
-
 	对输入的字符串在入队之前先做处理，判断在'('的下一个是不是'-'，如果
 	是的话就在他们之间加入一个'0'，处理完后就对处理后的字符串进行入队处
 	理。
-
 	==============================================================*/
 	for(int i=0; i<len; i++)
 	{
@@ -84,9 +80,7 @@ queue<string>Scan::ToStringQueue(string input)
 		}
 	}
 	/*====================================
-
 		 对新的字符串做入队处理
-
 	====================================*/
 	int l=tmp.length();
 	input="";

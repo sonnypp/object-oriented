@@ -1,15 +1,15 @@
-# Project: Project3
+# Project: bbs
 # Makefile created by Dev-C++ 5.10
 
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = calculation.o calculator.o Scan.o
-LINKOBJ  = calculation.o calculator.o Scan.o
+OBJ      = calculator.o Scan.o Print.o Calculation.o
+LINKOBJ  = calculator.o Scan.o Print.o Calculation.o
 LIBS     = -static-libstdc++ -static-libgcc -g3
 INCS     = 
 CXXINCS  = 
-BIN      = Project3.exe
+BIN      = bbs.exe
 CXXFLAGS = $(CXXINCS) -g3
 CFLAGS   = $(INCS) -g3
 RM       = rm.exe -f
@@ -24,11 +24,14 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-calculation.o: calculation.cpp
-	$(CPP) -c calculation.cpp -o calculation.o $(CXXFLAGS)
-
 calculator.o: calculator.cpp
 	$(CPP) -c calculator.cpp -o calculator.o $(CXXFLAGS)
 
 Scan.o: Scan.cpp
 	$(CPP) -c Scan.cpp -o Scan.o $(CXXFLAGS)
+
+Print.o: Print.cpp
+	$(CPP) -c Print.cpp -o Print.o $(CXXFLAGS)
+
+Calculation.o: Calculation.cpp
+	$(CPP) -c Calculation.cpp -o Calculation.o $(CXXFLAGS)

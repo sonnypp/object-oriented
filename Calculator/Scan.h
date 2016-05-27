@@ -25,6 +25,7 @@ class Scan
 		bool judge();
 	private:
 		bool flag;
+		queue<string>key;/*设全局的队列queue*/
 };
 
 #endif

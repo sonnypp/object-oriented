@@ -8,24 +8,15 @@ ps:此次作业将可用文件输入与结果输出到文件 。
 ***********************************************************/
 
 #include<iostream>
-#include<queue>
 #include<string>
 #include<string.h>
-#include<stack>
-#include "Scan.h"
 #include "Print.h"
-#include "calculation.h"
 using namespace std;
 int main(int argc,char* argv[])
 {
 	queue<string>que;
-	/*创建一个Scan类的对象 a；*/
-	Scan a;
 	/*创建一个Print类的对象 b；*/
 	Print b;
-	/*创建一个calculation类的对象 b；*/
-	calcu c;
-	/*声明字符串 ；*/
 	string input;
 	int flag=1;
 	/*判断是否为文件输入*/
