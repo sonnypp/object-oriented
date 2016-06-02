@@ -1,0 +1,9 @@
+﻿  calaulatorDlg.cpp
+calaulatorDlg.cpp(763): warning C4244: “初始化”: 从“ULONGLONG”转换到“int”，可能丢失数据
+  正在生成代码
+  3 of 739 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    29 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  calaulator.vcxproj -> C:\Users\苏\Desktop\calaulator\Release\calaulator.exe
+  calaulator.vcxproj -> C:\Users\苏\Desktop\calaulator\Release\calaulator.pdb (Full PDB)

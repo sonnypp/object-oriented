@@ -1,12 +1,4 @@
-/************************************************************
-文件名：calculator.cpp
-作者：031502331
-时间：2016/3/26
-博客名：Sxiaopeng
-作用：处理字符串，并且输出,并计算出值。
-ps:此次作业将可用文件输入与结果输出到文件 。
-***********************************************************/
-
+#include "stdafx.h"
 #include<iostream>
 #include<string>
 #include<string.h>
@@ -17,6 +9,7 @@ int main(int argc,char* argv[])
 	queue<string>que;
 	/*创建一个Print类的对象 b；*/
 	Print b;
+	Scan a;
 	string input;
 	int flag=1;
 	/*判断是否为文件输入*/
@@ -28,7 +21,7 @@ int main(int argc,char* argv[])
 		{
 			string text_file=argv[argc-2];  //输入文件名
 			string result_file=argv[argc-1];  //输出文件名
-			b.Filelong(text_file,result_file); //Print类里面处理文件计算的函数
+			a.Filelong(text_file,result_file); //Print类里面处理文件计算的函数
 		}
 		else
 		{
